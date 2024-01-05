@@ -2,6 +2,7 @@
 import 'package:driver_test_apps/core/assets/assets.gen.dart';
 import 'package:driver_test_apps/core/components/buttons.dart';
 import 'package:driver_test_apps/core/extensions/build_context_ext.dart';
+import 'package:driver_test_apps/presentation/home/pages/dashboard_page.dart';
 import 'package:driver_test_apps/presentation/quiz/bloc/get_score_by_category_bloc/get_score_by_category_bloc.dart';
 
 import 'package:flutter/material.dart';
@@ -29,6 +30,7 @@ class _QuizFinishPageState extends State<QuizFinishPage> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
+      showBackButton: false,
       appBarTitle: Text(widget.data.name),
       body: SizedBox(
         width: context.deviceWidth,
@@ -53,7 +55,11 @@ class _QuizFinishPageState extends State<QuizFinishPage> {
                 height: 20,
               ),
               Button.outlined(
-                onPressed: () {},
+                onPressed: () {
+                  context.pushReplacement(
+                    const DashboardPage(),
+                  );
+                },
                 label: "Back to home",
                 height: 50,
               ),
@@ -66,7 +72,7 @@ class _QuizFinishPageState extends State<QuizFinishPage> {
                         GetScoreByCategoryEvent.getScoreByCategory(
                             widget.data.category),
                       );
-                  context.push(QuizResultPage(
+                  context.pushReplacement(QuizResultPage(
                     data: widget.data,
                   ));
                 },

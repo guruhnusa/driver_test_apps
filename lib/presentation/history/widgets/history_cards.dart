@@ -35,70 +35,75 @@ class _HistoryCardsState extends State<HistoryCards> {
         },
         onSuccessGetHistory: (data) {
           final history = data.data;
-          return ListView.separated(
-            shrinkWrap: true,
-            itemCount: history.length,
-            itemBuilder: (context, index) {
-              final item = history[index];
-              return Card(
-                color: AppColors.cardGreen,
-                child: Container(
-                  height: 144,
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        item.category,
-                        style: const TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w600),
+          return history.isEmpty
+              ? const Center(child: Text("No history yet"))
+              : ListView.separated(
+                  shrinkWrap: true,
+                  itemCount: history.length,
+                  itemBuilder: (context, index) {
+                    final item = history[index];
+                    return Card(
+                      color: AppColors.cardGreen,
+                      child: Container(
+                        height: 144,
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              item.category,
+                              style: const TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  "Status of the test",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                                Text(
+                                  item.score >= 70 ? "Passed" : "Failed",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: item.score >= 70
+                                          ? AppColors.primaryGreen
+                                          : AppColors.primaryRed),
+                                ),
+                              ],
+                            ),
+                            const Divider(),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  "Number of correct answers",
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                                Text(
+                                  "${item.correctAnswer}/ ${item.correctAnswer + item.incorrectAnswer}",
+                                  style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ],
+                            ),
+                            const Divider(),
+                          ],
+                        ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            "Status of the test",
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w400),
-                          ),
-                          Text(
-                            item.score >= 70 ? "Passed" : "Failed",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: item.score >= 70
-                                    ? AppColors.primaryGreen
-                                    : AppColors.primaryRed),
-                          ),
-                        ],
-                      ),
-                      const Divider(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            "Number of correct answers",
-                            style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w400),
-                          ),
-                          Text(
-                            "${item.correctAnswer}/ ${item.correctAnswer + item.incorrectAnswer}",
-                            style: const TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                      const Divider(),
-                    ],
-                  ),
-                ),
-              );
-            },
-            separatorBuilder: (context, index) {
-              return const SizedBox(height: 22);
-            },
-          );
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(height: 22);
+                  },
+                );
         },
       );
     });

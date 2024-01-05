@@ -85,7 +85,6 @@ class ExamRemoteDatasource {
         "Authorization": "Bearer ${authData.accessToken}"
       },
     );
-
     if (response.statusCode == 200) {
       return Right(
         HistoryResponseModel.fromJson(response.body),

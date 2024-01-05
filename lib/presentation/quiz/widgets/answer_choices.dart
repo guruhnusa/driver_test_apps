@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../core/constant/colors.dart';
 
-
-
 enum AnswerCorrection { none, selected }
 
 class AnswerChoices extends StatefulWidget {
@@ -42,11 +40,14 @@ class _AnswerChoicesState extends State<AnswerChoices> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              widget.label,
-              style: const TextStyle(
-                fontSize: 18,
-                color: Color(0xFF21205A),
+            Flexible(
+              child: Text(
+                widget.label,
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Color(0xFF21205A),
+                ),
+                textAlign: TextAlign.center,
               ),
             ),
           ],

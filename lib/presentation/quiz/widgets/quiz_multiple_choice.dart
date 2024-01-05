@@ -88,7 +88,9 @@ class _QuizMultipleChoiceState extends State<QuizMultipleChoice> {
                         data[currentIndex].question,
                         textAlign: TextAlign.justify,
                         style: const TextStyle(
-                            fontSize: 18, color: Color(0xFF383A44)),
+                            fontSize: 18,
+                            color: Color(0xFF383A44),
+                            fontWeight: FontWeight.w600),
                       ),
                     ],
                   ),
@@ -197,7 +199,7 @@ class _QuizMultipleChoiceState extends State<QuizMultipleChoice> {
                                           theAnswer,
                                         ),
                                       );
-                                  context.push(
+                                  context.pushReplacement(
                                     QuizFinishPage(
                                       data: widget.data,
                                     ),

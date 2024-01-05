@@ -21,6 +21,7 @@ class $AssetsImagesGen {
   $AssetsImagesNavigationGen get navigation =>
       const $AssetsImagesNavigationGen();
   $AssetsImagesQuizGen get quiz => const $AssetsImagesQuizGen();
+  $AssetsImagesSignsGen get signs => const $AssetsImagesSignsGen();
   $AssetsImagesSosmedGen get sosmed => const $AssetsImagesSosmedGen();
 
   /// List of all assets
@@ -116,6 +117,25 @@ class $AssetsImagesQuizGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [generalTest, psychoTest, trafficTest];
+}
+
+class $AssetsImagesSignsGen {
+  const $AssetsImagesSignsGen();
+
+  /// File path: assets/images/signs/forbidden.png
+  AssetGenImage get forbidden =>
+      const AssetGenImage('assets/images/signs/forbidden.png');
+
+  /// File path: assets/images/signs/priority.png
+  AssetGenImage get priority =>
+      const AssetGenImage('assets/images/signs/priority.png');
+
+  /// File path: assets/images/signs/warning.png
+  AssetGenImage get warning =>
+      const AssetGenImage('assets/images/signs/warning.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [forbidden, priority, warning];
 }
 
 class $AssetsImagesSosmedGen {

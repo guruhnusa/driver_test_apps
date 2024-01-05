@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'package:driver_test_apps/presentation/encyclopedia/pages/encyclopedia_page.dart';
 import 'package:driver_test_apps/presentation/history/pages/history_page.dart';
 import 'package:driver_test_apps/presentation/home/pages/home_page.dart';
 import 'package:driver_test_apps/presentation/profile/pages/profile_page.dart';
@@ -26,9 +27,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
   final List<Widget> pages = [
     const HomePage(),
-    const Center(
-      child: Text('Materi'),
-    ),
+    const EncyclopediaPage(),
     const HistoryPage(),
     const ProfilePage(),
   ];

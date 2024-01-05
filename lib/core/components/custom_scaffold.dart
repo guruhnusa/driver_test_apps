@@ -42,7 +42,7 @@ class CustomScaffold extends StatelessWidget {
                   size: 32.0,
                 ),
               )
-            : null,
+            : const SizedBox(),
         centerTitle: true,
         backgroundColor: AppColors.primaryBlue,
         title: appBarTitle,

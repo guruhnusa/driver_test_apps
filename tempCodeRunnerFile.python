@@ -1,0 +1,13 @@
+# Inisialisasi variabel
+jumlah_bilangan = 0
+
+# Looping dari 1 sampai 200
+for i in range(1, 201):
+  # Periksa apakah bilangan habis dibagi 5 atau 6
+  if i % 5 == 0 or i % 6 == 0:
+    # Periksa apakah bilangan tidak habis dibagi 2
+    if i % 2 != 0:
+      jumlah_bilangan += 1
+
+# Tampilkan hasil
+print(f"Jumlah bilangan bulat antara 1 sampai 200 yang habis dibagi 5 atau 6 tetapi tidak habis dibagi 2: {jumlah_bilangan}")

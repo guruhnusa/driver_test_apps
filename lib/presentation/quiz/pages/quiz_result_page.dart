@@ -28,6 +28,7 @@ class _QuizResultPageState extends State<QuizResultPage> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
+      showBackButton: false,
       appBarTitle: const Text("Result Test"),
       body: BlocBuilder<GetScoreByCategoryBloc, GetScoreByCategoryState>(
           builder: (context, state) {

@@ -1,10 +1,14 @@
 import 'package:driver_test_apps/data/datasources/remote/auth_remote_datasource.dart';
 import 'package:driver_test_apps/data/datasources/remote/exam_remote_datasource.dart';
+import 'package:driver_test_apps/data/datasources/remote/signs_remote_datasource.dart';
+import 'package:driver_test_apps/data/datasources/remote/tutorial_video_remote_datasource.dart';
 import 'package:driver_test_apps/presentation/authentication/bloc/answer_question/answer_question_bloc.dart';
 
 import 'package:driver_test_apps/presentation/authentication/bloc/login/login_bloc.dart';
 import 'package:driver_test_apps/presentation/authentication/bloc/register/register_bloc.dart';
 import 'package:driver_test_apps/presentation/authentication/pages/login_page.dart';
+import 'package:driver_test_apps/presentation/encyclopedia/bloc/get_video/get_video_bloc.dart';
+
 import 'package:driver_test_apps/presentation/history/bloc/history/history_bloc.dart';
 import 'package:driver_test_apps/presentation/onboarding/pages/onboarding_page.dart';
 import 'package:driver_test_apps/presentation/quiz/bloc/get_score_by_category_bloc/get_score_by_category_bloc.dart';
@@ -15,6 +19,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'data/datasources/local/auth_local_datasource.dart';
 import 'data/datasources/local/onboarding_local_datasource.dart';
 import 'data/models/response/auth_response_model.dart';
+import 'presentation/encyclopedia/bloc/get_sign/get_sign_by_category_bloc.dart';
 import 'presentation/home/pages/dashboard_page.dart';
 import 'presentation/profile/bloc/logout/logout_bloc.dart';
 import 'presentation/quiz/bloc/create_exam/create_exam_bloc.dart';
@@ -73,6 +78,16 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => GetScoreByCategoryBloc(
             ExamRemoteDatasource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => GetSignByCategoryBloc(
+            SignRemoteDataSource(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => GetVideoBloc(
+            TutorialVideoRemoteDatasource(),
           ),
         ),
       ],

@@ -63,7 +63,9 @@ class Question {
         id: json["id"],
         question: json["question"],
         category: json["category"],
-        image: json["image"],
+        // ignore: prefer_interpolation_to_compose_strings
+        image: "https://driver.guruhnusa.my.id/storage/public/signs/" +
+            json["image"],
         answerA: json["answer_a"],
         answerB: json["answer_b"],
         answerC: json["answer_c"],
